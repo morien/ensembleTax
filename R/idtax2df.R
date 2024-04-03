@@ -192,7 +192,7 @@ idtax2df <- function(tt, db = "pr2", ranks = NULL, boot = 0, rubric = NULL,
     yydf[confdf < boot] <- NA
 
     if (db == "pr2") {
-      ranks <- c("kingdom", "supergroup", "division", "class", "order", "family", "genus", "species")
+      ranks <- c("domain", "supergroup", "division", "subdivision", "class", "order", "family", "genus", "species")
       colnames(yydf) <- ranks
       colnames(confdf) <- ranks
     } else if (is.null(db)) {
