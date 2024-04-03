@@ -64,14 +64,14 @@ idtax2df <- function(tt, db = "pr2", ranks = NULL, boot = 0, rubric = NULL,
     notu <- length(tt)
     for(j in 1:notu){
       bob <- tt[[j]]$taxon
-      if (length(bob) < 9) {
+      if (length(bob) < 10) {
         # add NA's to hit 9 ranks
-        linda <- 9 - length(bob)
+        linda <- 10 - length(bob)
         tina <- c(bob, rep(NA, times = linda))
         taxonomy<-append(taxonomy, tina)
         gene <- c(tt[[j]]$confidence, rep(NA, times = linda))
         conf <- append(conf, gene)
-      } else if (length(bob) > 9) {
+      } else if (length(bob) > 10) {
         stop("why pr2?! whyyyyyy")
       } else {
         taxonomy<-append(taxonomy, bob)
@@ -84,7 +84,7 @@ idtax2df <- function(tt, db = "pr2", ranks = NULL, boot = 0, rubric = NULL,
     confdf <- confdf[,-1]
     yydf[confdf < boot] <- NA
 
-    ranks <- c("kingdom", "supergroup", "division", "class", "order", "family", "genus", "species")
+    ranks <- c("domain", "supergroup", "division", "subdivision", "class", "order", "family", "genus", "species")
     colnames(yydf) <- ranks
     colnames(confdf) <- ranks
 
