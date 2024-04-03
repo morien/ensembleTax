@@ -36,7 +36,7 @@ if (!requireNamespace("BiocManager", quietly = TRUE))
 BiocManager::install(c("DECIPHER", "Biostrings", "dada2"))
 
 library(devtools)
-devtools::install_github("dcat4/ensembleTax", build_manual = TRUE, build_vignettes = TRUE)
+devtools::install_github("morien/ensembleTax", build_manual = TRUE, build_vignettes = TRUE)
 packageVersion("ensembleTax")
 ```
 
